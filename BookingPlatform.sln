@@ -5,6 +5,12 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingPlatform.API", "BookingPlatform.API\BookingPlatform.API.csproj", "{3D479141-CB25-46BA-82F9-32B40797EC33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingPlatform.Core", "BookingPlatform.Core\BookingPlatform.Core.csproj", "{44FABCEC-7CCC-4D6C-BBCD-FC1915A7717B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingPlatform.Application", "BookingPlatform.Application\BookingPlatform.Application.csproj", "{B64E7205-780B-4706-B0A1-274AE2CEC11E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingPlatform.DAL", "BookingPlatform.DAL\BookingPlatform.DAL.csproj", "{842C4B66-0E7C-40A5-8803-85A8651720F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{3D479141-CB25-46BA-82F9-32B40797EC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D479141-CB25-46BA-82F9-32B40797EC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D479141-CB25-46BA-82F9-32B40797EC33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44FABCEC-7CCC-4D6C-BBCD-FC1915A7717B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FABCEC-7CCC-4D6C-BBCD-FC1915A7717B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FABCEC-7CCC-4D6C-BBCD-FC1915A7717B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FABCEC-7CCC-4D6C-BBCD-FC1915A7717B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64E7205-780B-4706-B0A1-274AE2CEC11E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64E7205-780B-4706-B0A1-274AE2CEC11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64E7205-780B-4706-B0A1-274AE2CEC11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64E7205-780B-4706-B0A1-274AE2CEC11E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842C4B66-0E7C-40A5-8803-85A8651720F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842C4B66-0E7C-40A5-8803-85A8651720F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842C4B66-0E7C-40A5-8803-85A8651720F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842C4B66-0E7C-40A5-8803-85A8651720F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
