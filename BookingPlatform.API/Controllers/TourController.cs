@@ -16,7 +16,7 @@ namespace BookingPlatform.API.Controllers
             _tourService = tourService;
         }
 
-        [Authorize (Policy = "AdminOnly")]
+        [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> CreateTour([FromBody] CreateTourRequest request)
         {
