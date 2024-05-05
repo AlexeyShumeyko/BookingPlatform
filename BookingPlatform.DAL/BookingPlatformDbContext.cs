@@ -11,6 +11,10 @@ namespace BookingPlatform.DAL
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<ReservationTour> ReservationTour { get; set; }
+
+        public DbSet<Review> Reviews { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BookingPlatformDbContext).Assembly);
