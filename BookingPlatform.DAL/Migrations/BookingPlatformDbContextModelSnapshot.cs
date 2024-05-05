@@ -51,6 +51,32 @@ namespace BookingPlatform.DAL.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("BookingPlatform.Core.Models.ReservationTour", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("ReservationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TourId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TourId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ReservationTour");
+                });
+
             modelBuilder.Entity("BookingPlatform.Core.Models.Review", b =>
                 {
                     b.Property<int>("Id")
@@ -78,7 +104,7 @@ namespace BookingPlatform.DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Review");
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("BookingPlatform.Core.Models.Tour", b =>
@@ -118,16 +144,16 @@ namespace BookingPlatform.DAL.Migrations
                     b.ToTable("Tours");
                 });
 
-            modelBuilder.Entity("BookingPlatform.Core.Models.Review", b =>
+            modelBuilder.Entity("BookingPlatform.Core.Models.ReservationTour", b =>
                 {
                     b.HasOne("BookingPlatform.Core.Models.Tour", "Tour")
-                        .WithMany("Reviews")
+                        .WithMany("ReservationTour")
                         .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BookingPlatform.Core.Identity.User", "User")
-                        .WithMany()
+                        .WithMany("ReservationTours")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -137,8 +163,36 @@ namespace BookingPlatform.DAL.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("BookingPlatform.Core.Models.Review", b =>
+                {
+                    b.HasOne("BookingPlatform.Core.Models.Tour", "Tour")
+                        .WithMany("Reviews")
+                        .HasForeignKey("TourId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookingPlatform.Core.Identity.User", "User")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tour");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BookingPlatform.Core.Identity.User", b =>
+                {
+                    b.Navigation("ReservationTours");
+
+                    b.Navigation("Reviews");
+                });
+
             modelBuilder.Entity("BookingPlatform.Core.Models.Tour", b =>
                 {
+                    b.Navigation("ReservationTour");
+
                     b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
