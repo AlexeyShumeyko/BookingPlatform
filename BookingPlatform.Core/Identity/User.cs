@@ -1,4 +1,5 @@
 ﻿using BookingPlatform.Core.Contract;
+using BookingPlatform.Core.Models;
 
 namespace BookingPlatform.Core.Identity
 {
@@ -18,6 +19,9 @@ namespace BookingPlatform.Core.Identity
         public string Email { get; private set; }
 
         public string Role { get; set; } = string.Empty;
+
+        public ICollection<Review> Reviews { get; set; }
+        public ICollection<ReservationTour> ReservationTours { get; set; }
 
         public static User Create (string userName, string passwordHash, string email)
         {

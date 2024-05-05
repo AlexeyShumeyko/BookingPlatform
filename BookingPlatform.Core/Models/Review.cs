@@ -6,9 +6,13 @@ namespace BookingPlatform.Core.Models
     public class Review : Entity<int>
     {
         public string Comment { get; set; } = string.Empty;
-        public int Rating { get; set; }
-        public required User User { get; set; }
-        public required Tour Tour { get; set; }
+        public required int Rating { get; set; }
+
+        public int UserId { get; set; }
+        public User User { get; set; }
+
+        public int TourId { get; set; }
+        public Tour Tour { get; set; }
 
     }
 }

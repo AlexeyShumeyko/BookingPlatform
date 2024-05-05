@@ -11,6 +11,8 @@ namespace BookingPlatform.Core.Models
         public required DateTime EndDate { get; set; }
         public required decimal Price { get; set; }
         public required int MaxCapacity { get; set; }
-        public List<Review> Reviews { get; set; }
+
+        public ICollection<Review> Reviews { get; set; }
+        public ICollection<ReservationTour> ReservationTour {  get; set; }
     }
 }
