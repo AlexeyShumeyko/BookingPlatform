@@ -69,13 +69,17 @@ namespace BookingPlatform.API
             builder.Services.AddSingleton<ILogger>(logger);
         }
 
-        public static void RegisterService(IServiceCollection services)
+        private static void RegisterService(IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITourService, TourService>();
+            services.AddScoped<IReservationService, ReservationService>();
+            services.AddScoped<IReviewService, ReviewService>();
 
             services.AddScoped<IJwtProvider, JwtProvider>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
+
+            services.AddScoped<IReservationReporting, ReservationReporting>();
         }
     }
 }

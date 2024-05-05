@@ -1,11 +1,20 @@
+using BookingPlatform.API;
+using BookingPlatform.API.Extensions;
+using BookingPlatform.Application.Auth;
+using Microsoft.AspNetCore.CookiePolicy;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+Startup.AddServices(builder);
+
+builder.Services.AddApiAuthentication(builder.Configuration);
+
+builder.Services.Configure<JwtOptions>(
+    builder.Configuration.GetSection(nameof(JwtOptions)));
 
 var app = builder.Build();
 
@@ -18,6 +27,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCookiePolicy(new CookiePolicyOptions
+{
+    MinimumSameSitePolicy = SameSiteMode.Strict,
+    HttpOnly = HttpOnlyPolicy.Always,
+    Secure = CookieSecurePolicy.Always
+});
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
